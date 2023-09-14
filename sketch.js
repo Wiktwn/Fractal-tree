@@ -2,7 +2,7 @@ let branches = [];
 let fractalAngle1 = 45;
 let fractalAngle2 = 45;
 let fractalLength = 100
-let depth = 11;
+let depth = 10;
 let pv1;let pv2;let pv3;
 
 function setup() {
@@ -16,9 +16,9 @@ function setup() {
   s1.size(width/3);
   s2.size(width/3);
   s3.size(width/3);
-  s1.position(windowWidth/2+110, windowHeight-40);
-  s2.position(windowWidth/2-110, windowHeight-40);
-  s3.position(windowWidth/2-110*3, windowHeight-40);
+  s1.position(windowWidth/2+width/4, windowHeight-40);
+  s2.position(windowWidth/2-width/3/2, windowHeight-40);
+  s3.position(windowWidth/2-width/4*2.31, windowHeight-40);
   pv1 = s1.value();
   pv2 = s2.value();
   pv3 = s3.value();
@@ -29,6 +29,12 @@ function windowResized() {
   tree(createVector(width/2, height), fractalLength, 180, depth);
   resizeCanvas(windowWidth/1.2, windowHeight/1.2);
   canvas.position((windowWidth-width)/2, (windowHeight-height)/2);
+  s1.size(width/3);
+  s2.size(width/3);
+  s3.size(width/3);
+  s1.position(windowWidth/2+width/4, windowHeight-40);
+  s2.position(windowWidth/2-width/3/2, windowHeight-40);
+  s3.position(windowWidth/2-width/4*2.31, windowHeight-40);
 }
 
 function draw() {
