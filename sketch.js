@@ -12,16 +12,21 @@ function setup() {
   tree(createVector(width/2, height), fractalLength, 180, depth);
   s1 = createSlider(0, 180, 30, 0);
   s2 = createSlider(0, 180, 30, 0);
-  s3 = createSlider(0, height, 100, 0);
-  s1.size(width/3);
-  s2.size(width/3);
-  s3.size(width/3);
-  s1.position(windowWidth/2+width/4, windowHeight-40);
-  s2.position(windowWidth/2-width/3/2, windowHeight-40);
-  s3.position(windowWidth/2-width/4*2.31, windowHeight-40);
+  s3 = createSlider(0, height/2, 100, 0);
+  s1.size(100);
+  s2.size(100);
+  s3.size(100);
+  s1.position(windowWidth/2+50, windowHeight-40);
+  s2.position(windowWidth/2-50, windowHeight-40);
+  s3.position(windowWidth/2-150, windowHeight-40);
   pv1 = s1.value();
   pv2 = s2.value();
   pv3 = s3.value();
+  
+  inp = createInput("");
+  inp.size(50);
+  inp.position(windowWidth/2-25, 10);
+  inp.input(inputDepth);
 }
 
 function windowResized() {
@@ -29,12 +34,12 @@ function windowResized() {
   tree(createVector(width/2, height), fractalLength, 180, depth);
   resizeCanvas(windowWidth/1.2, windowHeight/1.2);
   canvas.position((windowWidth-width)/2, (windowHeight-height)/2);
-  s1.size(width/3);
-  s2.size(width/3);
-  s3.size(width/3);
-  s1.position(windowWidth/2+width/4, windowHeight-40);
-  s2.position(windowWidth/2-width/3/2, windowHeight-40);
-  s3.position(windowWidth/2-width/4*2.31, windowHeight-40);
+  s1.size(100);
+  s2.size(100);
+  s3.size(100);
+  s1.position(windowWidth/2+50, windowHeight-40);
+  s2.position(windowWidth/2-50, windowHeight-40);
+  s3.position(windowWidth/2-150, windowHeight-40);
 }
 
 function draw() {
@@ -51,7 +56,7 @@ function draw() {
     fractalAngle1 = s1.value();
     fractalAngle2 = s2.value();
     fractalLength = s3.value();
-    tree(createVector(width/2, height), fractalLength, 180, 10);
+    tree(createVector(width/2, height), fractalLength, 180, depth);
   }
   pv1 = s1.value();
   pv2 = s2.value();
@@ -68,4 +73,10 @@ function tree(start, len, angle, depth=10, stroke=3) {
     tree(end, len/1.5, angle+fractalAngle1, depth-1, stroke-0.2);
     tree(end, len/1.5, angle-fractalAngle2, depth-1, stroke-0.2);
   }
+}
+
+function inputDepth() {
+  depth = int(this.value());
+  branches = [];
+  tree(createVector(width/2, height), fractalLength, 180, depth);
 }
