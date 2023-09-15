@@ -61,8 +61,8 @@ function tree(start, len, angle, depth=10, stroke=3) {
   branches.push([start.x, start.y, x+start.x, y+start.y, stroke])
   if (depth > 0) {
     let end = createVector(x+start.x, y+start.y);
-    tree(end, len/fractalLengthFraction1, angle+fractalAngle1, depth-1, stroke-0.2);
-    tree(end, len/fractalLengthFraction2, angle-fractalAngle2, depth-1, stroke-0.2);
+    tree(end, len/fractalLengthFraction1, angle+fractalAngle1, depth-1, stroke-0.1);
+    tree(end, len/fractalLengthFraction2, angle-fractalAngle2, depth-1, stroke-0.1);
   }
 }
 
