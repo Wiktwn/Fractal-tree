@@ -13,15 +13,11 @@ function setup() {
   s1 = createSlider(0, 180, 30, 0);
   s2 = createSlider(0, 180, 30, 0);
   s3 = createSlider(0, height/2, 100, 0);
-  s1.size(100);
-  s2.size(100);
-  s3.size(100);
+  s1.size(100);s2.size(100);s3.size(100);
   s1.position(windowWidth/2+50, windowHeight-40);
   s2.position(windowWidth/2-50, windowHeight-40);
   s3.position(windowWidth/2-150, windowHeight-40);
-  pv1 = s1.value();
-  pv2 = s2.value();
-  pv3 = s3.value();
+  pv1 = s1.value();pv2 = s2.value();pv3 = s3.value();
   
   inp = createInput("");
   inp.size(50);
